@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+
+  alluxio-client:
+    hostname: alluxio-client
+    container_name: dmx-alluxio-client
+    image: dimajix/alluxio:latest
+    build: 
+      context:  .
+      args:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
+    env_file:
+      - docker-compose.env
+    environment:
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+
+  alluxio-master:
+    hostname: alluxio-master
+    container_name: dmx-alluxio-master
+    image: dimajix/alluxio:latest
+    command: master
+    env_file:
+      - docker-compose.env
+    environment:
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+
+  alluxio-worker-0:
+    hostname: alluxio-worker-0
+    container_name: dmx-alluxio-worker-0
+    image: dimajix/alluxio:latest
+    command: worker
+    env_file:
+      - docker-compose.env
+    links:
+      - alluxio-master
+    environment:
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+
+  alluxio-worker-1:
+    hostname: alluxio-worker-1
+    container_name: dmx-alluxio-worker-1
+    image: dimajix/alluxio:latest
+    command: worker
+    env_file:
+      - docker-compose.env
+    links:
+      - alluxio-master
+
+networks:
+  default:
+    external:
+      name: dimajix
+
