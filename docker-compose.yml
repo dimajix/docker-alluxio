@@ -35,11 +35,11 @@ services:
     command: worker
     env_file:
       - docker-compose.env
-    links:
-      - alluxio-master
     environment:
       - http_proxy=${http_proxy}
       - https_proxy=${https_proxy}
+    links:
+      - alluxio-master
 
   alluxio-worker-1:
     hostname: alluxio-worker-1
@@ -48,6 +48,9 @@ services:
     command: worker
     env_file:
       - docker-compose.env
+    environment:
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
     links:
       - alluxio-master
 
