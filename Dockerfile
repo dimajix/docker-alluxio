@@ -14,7 +14,7 @@ ENV ALLUXIO_HOME=/opt/alluxio \
 RUN curl -sL --retry 3 "http://downloads.alluxio.org/downloads/files/${BUILD_ALLUXIO_VERSION}/alluxio-${BUILD_ALLUXIO_VERSION}-bin.tar.gz" \
   | tar xz -C /opt \
  && ln -s /opt/alluxio-${BUILD_ALLUXIO_VERSION} ${ALLUXIO_HOME} \
- && chown -R root:root $ALLUXIO_HOME \
+ && chown -R root:root ${ALLUXIO_HOME} \
  && mkdir -p ${ALLUXIO_CONF_DIR} \
  && mkdir -p ${ALLUXIO_LOGS_DIR}
 

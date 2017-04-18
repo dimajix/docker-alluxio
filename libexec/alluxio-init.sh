@@ -5,4 +5,4 @@ set -eo pipefail
 source /opt/docker/libexec/common.sh
 source /opt/docker/libexec/alluxio-vars.sh
 
-render_templates /opt/docker/conf/alluxio $ALLUXIO_CONF_DIR
+render_templates /opt/docker/conf/alluxio ${ALLUXIO_CONF_DIR}
