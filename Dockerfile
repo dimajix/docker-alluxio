@@ -3,14 +3,12 @@ MAINTAINER k.kupferschmidt@dimajix.de
 
 ARG BUILD_ALLUXIO_VERSION=1.4.0
 
-USER root
-
 # Common Environment variables
 ENV ALLUXIO_HOME=/opt/alluxio \
     ALLUXIO_CONF_DIR=/etc/alluxio \
     ALLUXIO_LOGS_DIR=/var/log/alluxio
 
-# Download and install Spark
+# Download and install Alluxio
 RUN curl -sL --retry 3 "http://downloads.alluxio.org/downloads/files/${BUILD_ALLUXIO_VERSION}/alluxio-${BUILD_ALLUXIO_VERSION}-bin.tar.gz" \
   | tar xz -C /opt \
  && ln -s /opt/alluxio-${BUILD_ALLUXIO_VERSION} ${ALLUXIO_HOME} \
