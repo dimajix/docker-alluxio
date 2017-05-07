@@ -1,4 +1,4 @@
-FROM dimajix/java:oracle-8
+FROM dimajix/jre:oracle-8
 MAINTAINER k.kupferschmidt@dimajix.de
 
 ARG BUILD_ALLUXIO_VERSION=1.4.0
