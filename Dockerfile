@@ -1,7 +1,7 @@
 FROM dimajix/jre:oracle-8
 MAINTAINER k.kupferschmidt@dimajix.de
 
-ARG BUILD_ALLUXIO_VERSION=1.4.0
+ARG BUILD_ALLUXIO_VERSION=1.5.0
 
 # Common Environment variables
 ENV ALLUXIO_HOME=/opt/alluxio \

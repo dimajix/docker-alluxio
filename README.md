@@ -45,7 +45,7 @@ Worker Web Interface: <worker>:30000
     S3_ENDPOINT_HTTP_PORT=80
     S3_ENDPOINT_HTTPS_PORT=443
     S3_PROXY_HOST=
-    S3_PROXY_PORT=
+    S3_PROXY_PORT=-1
     S3_PROXY_USE_HTTPS=false
     
     AWS_ACCESS_KEY_ID=
