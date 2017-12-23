@@ -23,8 +23,8 @@ This Docker container can be used to start up multiple Alluxio containers for ca
 
 ## Volumes
 
-    ALLUXIO_MASTER_JOURNAL_FOLDER
-    ALLUXIO_WORKER_FOLDER
+    ALLUXIO_MASTER_JOURNAL_FOLDER=/mnt/journal
+    ALLUXIO_WORKER_FOLDER=/mnt/ramdisk
     ALLUXIO_UNDERFS_ADDRESS
 
 ## Communication Ports

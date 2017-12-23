@@ -9,10 +9,13 @@ get_env() {
     BIN=$ALLUXIO_HOME/bin
     ALLUXIO_LIBEXEC_DIR=${ALLUXIO_LIBEXEC_DIR:-$ALLUXIO_HOME/libexec}
     . ${ALLUXIO_LIBEXEC_DIR}/alluxio-config.sh
+    CLASSPATH=${ALLUXIO_CLIENT_CLASSPATH}
 }
 
 
 start_worker() {
+    CLASSPATH=${ALLUXIO_SERVER_CLASSPATH}
+
     alluxio-mount.sh Mount
     MOUNT_FAILED=$?
 
@@ -31,6 +34,8 @@ start_worker() {
 
 
 start_master() {
+    CLASSPATH=${ALLUXIO_SERVER_CLASSPATH}
+
     if [[ -z ${ALLUXIO_MASTER_JAVA_OPTS} ]]; then
         ALLUXIO_MASTER_JAVA_OPTS=${ALLUXIO_JAVA_OPTS}
     fi
@@ -46,6 +51,8 @@ start_master() {
 
 
 start_proxy() {
+    CLASSPATH=${ALLUXIO_SERVER_CLASSPATH}
+
     if [[ -z ${ALLUXIO_PROXY_JAVA_OPTS} ]]; then
         ALLUXIO_PROXY_JAVA_OPTS=${ALLUXIO_JAVA_OPTS}
     fi
